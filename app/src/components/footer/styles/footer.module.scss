@@ -1,0 +1,172 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.footer {
+  background-color: $footer-bg-color;
+  color: $main-text-color;
+  padding: 1.25rem;
+  height: 9rem;
+  position: relative;
+  transform-style: preserve-3d;
+  @include flex-center(space-between, center); 
+
+  &__btn {
+    background-color: $footer-bg-color;
+    border: 1px solid $footer-element-color;
+    border-radius: 0.25rem;
+    @include flex-center(center, center);
+    gap: 0.875rem;
+    width: 12.5rem;
+    color: $main-text-color;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    @media screen and (min-width: 25rem) {
+      width: 14.5rem;
+    }
+
+    &-container {
+      position: relative;
+
+      &:has(.footer__toggle:checked) ~ .footer__frame {
+        transform: translateY(-100%);
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      color: $white;
+      border-color: $white;
+    }
+
+    .footer__icon {
+      transition: transform 0.3s ease;
+    }
+
+  
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked + .footer__btn .footer__icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__frame {
+    width: 15rem;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    background-color: $white;
+    position: absolute;
+    right: 1.25rem;
+    top: 0;
+    padding: 1.5rem;
+    @include flex-center(center, flex-start);
+    gap: 0.75rem;
+    flex-direction: column;
+    border-radius: 0.25rem 0.25rem 0 0;
+    cursor: default;
+    transform: translateZ(-0.5rem);
+    box-shadow: 0 0 1rem $black;
+  }
+}
+
+.frame {
+  &__btn {
+    @include flex-center(center, center);
+    gap: 0.75rem;
+    border: none;
+    background-color: transparent;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $light-orange;
+    }
+  }
+
+  &__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.text_box {
+  &__container {
+    width: 6rem;
+    height: 6rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: transparent;
+      border: 1px solid $footer-element-color;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all 1s ease-in-out;
+    }
+
+    &:hover {
+      &::before {
+        transform: rotate(360deg);
+        border-color: $light-orange;
+      }
+
+      .text_box__text {
+        color: $white;
+      }
+    }
+  }
+
+  &__text {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 400;
+    display: block;
+    color: $footer-element-color;
+    transition: color 1s ease-in-out;
+  }
+}
+
+.company {
+  &__container {
+    display: none;
+  }
+
+  @media screen and (min-width: 60rem) {
+    &__container {
+      @include flex-center(center, center);
+      gap: 0.75rem;
+      color: $footer-element-color;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &__divider {
+      width: 3rem;
+      height: 1px;
+      background-color: $footer-element-color;
+    }
+
+    &__text {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+  }
+}
