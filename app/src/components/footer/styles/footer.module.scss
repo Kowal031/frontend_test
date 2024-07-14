@@ -5,7 +5,7 @@
   background-color: $footer-bg-color;
   color: $main-text-color;
   padding: 1.25rem;
-  height: 8.5rem;
+  height: 9rem;
   position: relative;
   transform-style: preserve-3d;
   @include flex-center(space-between, center); 
@@ -16,7 +16,7 @@
     border-radius: 0.25rem;
     @include flex-center(center, center);
     gap: 0.875rem;
-    width: 17rem;
+    width: 12.5rem;
     color: $main-text-color;
     padding: 1rem;
     text-transform: uppercase;
@@ -24,6 +24,10 @@
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    @media screen and (min-width: 25rem) {
+      width: 14.5rem;
+    }
 
     &-container {
       position: relative;
@@ -42,6 +46,8 @@
     .footer__icon {
       transition: transform 0.3s ease;
     }
+
+  
   }
 
   &__toggle {
@@ -53,7 +59,7 @@
   }
 
   &__frame {
-    width: 17rem;
+    width: 15rem;
     transition: all 0.5s ease-in-out;
     opacity: 0;
     background-color: $white;

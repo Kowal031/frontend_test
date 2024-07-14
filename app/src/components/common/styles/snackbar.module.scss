@@ -1,0 +1,30 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.snackbar {
+  position: fixed;
+  bottom: 1.25rem; 
+  left: 1.25rem; 
+  padding: 1rem; 
+  min-width: 16rem; 
+  max-width: 19rem; 
+  text-align: center;
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  border-radius: 0.25rem; 
+  font-size: 1rem; 
+  font-weight: 500;
+  box-shadow: 0rem 0.2rem 0.3rem -0.1rem rgba(0, 0, 0, 0.2), 
+              0rem 0.4rem 0.6rem 0rem rgba(0, 0, 0, 0.14), 
+              0rem 0.1rem 1.1rem 0rem rgba(0, 0, 0, 0.12);
+
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &--error {
+    background-color: $error;
+    color: $white;
+  }
+}

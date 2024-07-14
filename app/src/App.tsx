@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "./components/layout/Layout";
+import MainPage from "./pages/MainPage";
 
 const App = () => {
   const [showName, setShowName] = useState<boolean>(false);
@@ -7,10 +8,7 @@ const App = () => {
   const handleToggleName = (showName: boolean) => {
     setShowName(showName);
   };
-
-  //for future reset function
   const handleReset = () => {
-    console.log(reset);
     setReset((prev) => !prev);
   };
 
@@ -20,7 +18,7 @@ const App = () => {
       handleToggleName={handleToggleName}
       handleReset={handleReset}
     >
-      <div style={{ height: "calc(100vh - 8.5rem - 5rem)" }}>MainPage</div>
+      <MainPage handleToggleName={handleToggleName} reset={reset} />
     </Layout>
   );
 };
